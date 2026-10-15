@@ -1,0 +1,13 @@
+import { notFound } from "next/navigation";
+import Card from "../../Card";
+import { listings, categories, SITE } from "../../../lib/data";
+export const generateStaticParams = () => categories.map(c => ({ slug: c.slug }));
+export function generateMetadata({ params }) { const c = categories.find(x => x.slug === params.slug); return c ? { title: `${c.name} in Texas`, description: c.blurb, alternates: { canonical: `/c/${c.slug}` } } : {}; }
+export default function Cat({ params }) {
+  const c = categories.find(x => x.slug === params.slug); if (!c) notFound();
+  const ls = listings.filter(l => l.cat === c.slug).sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+  const ld = { "@context": "https://schema.org", "@type": "ItemList", name: `${c.name} in Texas`, itemListElement: ls.map((l, i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}/l/${l.slug}`, name: l.name })) };
+  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+    <h1>{c.name} in Texas</h1><p className="lede">{c.blurb}</p>
+    <div className="grid">{ls.map(l => <Card key={l.slug} l={l} />)}</div></>);
+}

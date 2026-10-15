@@ -1,0 +1,15 @@
+:root{--bg:#0b0f17;--fg:#e8e4da;--mute:#8a8f99;--line:#232a36;--acc:#e8b04a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 Georgia,"Times New Roman",serif}
+a{color:var(--fg)}.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+.top{border-bottom:1px solid var(--line);font-family:Helvetica,Arial,sans-serif}.row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:14px 20px}
+.brand{font-weight:700;letter-spacing:.12em;text-decoration:none;font-size:13px}nav a{margin-left:16px;font-size:13px;text-decoration:none;color:var(--mute)}nav a:hover{color:var(--fg)}
+.hero{padding:56px 0 28px;border-bottom:1px solid var(--line);margin-bottom:28px}h1{font-size:40px;line-height:1.1;margin:0 0 14px;font-weight:400}
+h2{font-family:Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;margin:44px 0 4px}h2 a{text-decoration:none}.count{color:var(--mute);font-weight:400}
+.lede{color:var(--mute);max-width:640px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:0 28px}
+.card{border-top:1px solid var(--line);padding:16px 0 18px}.card h3{margin:0;font-size:20px;font-weight:400}.card h3 a{text-decoration:none}.card p{margin:6px 0}
+.meta{font:12px/1.4 Helvetica,Arial,sans-serif;color:var(--mute);letter-spacing:.03em}
+.ctas{font:13px Helvetica,Arial,sans-serif}.ctas a{margin-right:14px;color:var(--acc)}
+.feat{border:1px solid var(--acc);padding:20px 22px;margin-bottom:10px}.tag{font:11px Helvetica,Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:var(--acc)}
+.signup{margin:56px 0;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.signup label{display:block;margin-bottom:10px}
+input{background:transparent;border:1px solid var(--line);color:var(--fg);padding:10px;width:260px;font:inherit}button{background:var(--acc);border:0;padding:11px 18px;margin-left:8px;font:600 14px Helvetica,Arial,sans-serif;cursor:pointer}
+.plain{padding-left:18px}.foot{border-top:1px solid var(--line);margin-top:60px;padding:24px 20px 50px;color:var(--mute);font-size:14px}.foot a{color:var(--mute)}
