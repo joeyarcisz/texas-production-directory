@@ -21,6 +21,6 @@ export default function L({ params }) {
     { "@type": "ListItem", position: 3, name: l.name, item: `${SITE}/l/${l.slug}` } ] };
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
-    <p className="meta"><Link href={`/c/${c.slug}`}>{c.name}</Link></p><Card l={l} />
+    <p className="meta"><Link href={`/c/${c.slug}`}>{c.name}</Link></p><Card l={l} as="h1" />
     <p className="lede">Listing info comes from the company's public site. If you run this business and something is off, email joey@gearedlikeamachine.com and we'll fix it the same day.</p></>);
 }
