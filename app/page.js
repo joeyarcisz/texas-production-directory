@@ -2,7 +2,7 @@ import Link from "next/link";
 import Card from "./Card";
 import Signup from "./Signup";
 import { listings, categories, SITE } from "../lib/data";
-export const metadata = { alternates: { canonical: "/" } };
+export const metadata = { alternates: { canonical: "/" }, openGraph: { type: "website", siteName: "Texas Production Directory", url: "/" } };
 export default function Home() {
   const f = listings.filter(l => l.featured);
   const ld = { "@context": "https://schema.org", "@type": "WebSite", name: "Texas Production Directory", url: SITE,

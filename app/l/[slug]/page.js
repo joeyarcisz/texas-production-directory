@@ -8,7 +8,7 @@ function postal(a) {
     : { "@type": "PostalAddress", streetAddress: a, addressRegion: "TX", addressCountry: "US" };
 }
 export const generateStaticParams = () => listings.map(l => ({ slug: l.slug }));
-export function generateMetadata({ params }) { const l = listings.find(x => x.slug === params.slug); return l ? { title: `${l.name}, ${l.city}`, description: l.note, alternates: { canonical: `/l/${l.slug}` } } : {}; }
+export function generateMetadata({ params }) { const l = listings.find(x => x.slug === params.slug); return l ? { title: `${l.name}, ${l.city}`, description: l.note, alternates: { canonical: `/l/${l.slug}` }, openGraph: { type: "website", siteName: "Texas Production Directory", url: `/l/${l.slug}` } } : {}; }
 export default function L({ params }) {
   const l = listings.find(x => x.slug === params.slug); if (!l) notFound();
   const c = categories.find(x => x.slug === l.cat);

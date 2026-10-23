@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Card from "../../Card";
 import { listings, categories, SITE } from "../../../lib/data";
 export const generateStaticParams = () => categories.map(c => ({ slug: c.slug }));
-export function generateMetadata({ params }) { const c = categories.find(x => x.slug === params.slug); return c ? { title: `${c.name} in Texas`, description: c.blurb, alternates: { canonical: `/c/${c.slug}` } } : {}; }
+export function generateMetadata({ params }) { const c = categories.find(x => x.slug === params.slug); return c ? { title: `${c.name} in Texas`, description: c.blurb, alternates: { canonical: `/c/${c.slug}` }, openGraph: { type: "website", siteName: "Texas Production Directory", url: `/c/${c.slug}` } } : {}; }
 export default function Cat({ params }) {
   const c = categories.find(x => x.slug === params.slug); if (!c) notFound();
   const ls = listings.filter(l => l.cat === c.slug).sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
