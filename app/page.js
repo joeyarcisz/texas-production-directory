@@ -2,7 +2,7 @@ import Link from "next/link";
 import Card from "./Card";
 import Signup from "./Signup";
 import { listings, categories, SITE, NAME, DESC } from "../lib/data";
-export const metadata = { title: { absolute: NAME }, description: DESC, alternates: { canonical: "/" }, openGraph: { type: "website", siteName: NAME, url: "/" } };
+export const metadata = { title: { absolute: NAME }, description: DESC, alternates: { canonical: "/" }, openGraph: { type: "website", locale: "en_US", siteName: NAME, url: "/" } };
 export default function Home() {
   const f = listings.filter(l => l.featured);
   const ld = { "@context": "https://schema.org", "@type": "WebSite", name: NAME, url: SITE,

@@ -5,7 +5,7 @@ export const metadata = {
   metadataBase: new URL(SITE),
   title: { default: NAME, template: `%s | ${NAME}` },
   description: DESC,
-  openGraph: { type: "website", siteName: NAME },
+  openGraph: { type: "website", locale: "en_US", siteName: NAME },
 };
 export default function RootLayout({ children }) {
   return (<html lang="en"><body>
