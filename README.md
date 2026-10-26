@@ -1,6 +1,6 @@
-# Texas Commercial Crew and Production Directory // pragma: allowlist secret
+# Texas commercial crew directory
 
-Commercial crew, rental houses, stages and locations for Texas shoots. Next.js. Listings live in `lib/data.js`.
+Commercial crew, rental houses, stages and locations for Texas shoots. Next.js. Listings live in `lib/data.js`. The public site title lives in `NAME` there.
 
 Newsletter signups go to a Resend audience when `RESEND_API_KEY` and `RESEND_SEGMENT_ID` are set.
 
