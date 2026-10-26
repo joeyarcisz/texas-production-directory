@@ -1,16 +1,16 @@
 import "./globals.css";
 import Link from "next/link";
-import { SITE, categories } from "../lib/data";
+import { SITE, NAME, DESC, categories } from "../lib/data";
 export const metadata = {
   metadataBase: new URL(SITE),
-  title: { default: "Texas Production Directory | Gear, Stages, Locations, Crew", template: "%s | Texas Production Directory" },
-  description: "Rental houses, stages, film commissions and crew lists for shooting in Dallas, Fort Worth, Austin, Houston and San Antonio.",
-  openGraph: { type: "website", siteName: "Texas Production Directory" },
+  title: { default: NAME, template: `%s | ${NAME}` },
+  description: DESC,
+  openGraph: { type: "website", siteName: NAME },
 };
 export default function RootLayout({ children }) {
   return (<html lang="en"><body>
     <header className="top"><div className="wrap row">
-      <Link href="/" className="brand">TEXAS PRODUCTION DIRECTORY</Link>
+      <Link href="/" className="brand">{NAME.toUpperCase()}</Link>
       <nav>{categories.map(c => <Link key={c.slug} href={`/c/${c.slug}`}>{c.short}</Link>)}<Link href="/featured">Get listed</Link></nav>
     </div></header>
     <main className="wrap">{children}</main>
