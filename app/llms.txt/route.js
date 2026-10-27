@@ -1,4 +1,4 @@
-import { SITE, NAME, DESC, categories, CONTACT } from "../../lib/data";
+import { SITE, NAME, DESC, categories, listings, CONTACT } from "../../lib/data";
 
 export const dynamic = "force-static";
 
@@ -20,6 +20,14 @@ export function GET() {
     "",
     ...pages,
     "",
+    "## Listings",
+    "",
+    ...categories.flatMap(c => [
+      `### ${c.name}`,
+      "",
+      ...listings.filter(l => l.cat === c.slug).map(l => `- [${l.name}](${SITE}/l/${l.slug}): ${l.city}`),
+      "",
+    ]),
     `Individual company pages live under ${SITE}/l/{slug}.`,
     "",
     `Contact: ${CONTACT}`,
