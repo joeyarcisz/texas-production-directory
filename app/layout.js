@@ -6,6 +6,7 @@ export const metadata = {
   title: { default: NAME, template: `%s | ${NAME}` },
   description: DESC,
   openGraph: { type: "website", locale: "en_US", siteName: NAME },
+  twitter: { card: "summary" },
 };
 export default function RootLayout({ children }) {
   return (<html lang="en"><body>
