@@ -13,3 +13,5 @@ h2{font-family:Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;tex
 .signup{margin:56px 0;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.signup label{display:block;margin-bottom:10px}
 input{background:transparent;border:1px solid var(--line);color:var(--fg);padding:10px;width:260px;font:inherit}button{background:var(--acc);border:0;padding:11px 18px;margin-left:8px;font:600 14px Helvetica,Arial,sans-serif;cursor:pointer}
 .plain{padding-left:18px}.foot{border-top:1px solid var(--line);margin-top:60px;padding:24px 20px 50px;color:var(--mute);font-size:14px}.foot a{color:var(--mute)}
+
+.more{list-style:none;padding:0;margin:0 0 8px}.more li{padding:4px 0}

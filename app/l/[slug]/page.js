@@ -12,6 +12,9 @@ export function generateMetadata({ params }) { const l = listings.find(x => x.sl
 export default function L({ params }) {
   const l = listings.find(x => x.slug === params.slug); if (!l) notFound();
   const c = categories.find(x => x.slug === l.cat);
+  const city = l.city.split(" ")[0];
+  const more = listings.filter(x => x.cat === l.cat && x.slug !== l.slug)
+    .sort((a, b) => (b.city.includes(city) ? 1 : 0) - (a.city.includes(city) ? 1 : 0)).slice(0, 5);
   const type = l.cat === "locations" ? "GovernmentOrganization" : l.cat === "crew" ? "Organization" : "LocalBusiness";
   const ld = { "@context": "https://schema.org", "@type": type, name: l.name, url: l.url, description: l.note, areaServed: l.city + ", Texas",
     ...(l.phone && { telephone: l.phone }), ...(l.address && { address: postal(l.address) }) };
@@ -22,5 +25,8 @@ export default function L({ params }) {
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
     <p className="meta"><Link href={`/c/${c.slug}`}>{c.name}</Link></p><Card l={l} as="h1" />
-    <p className="lede">Listing info comes from the company's public site. If you run this business and something is off, email joey@gearedlikeamachine.com and we'll fix it the same day.</p></>);
+    <p className="lede">Listing info comes from the company's public site. If you run this business and something is off, email joey@gearedlikeamachine.com and we'll fix it the same day.</p>
+    {more.length > 0 && <section><h2>More {c.name.toLowerCase()} in Texas</h2>
+      <ul className="more">{more.map(x => <li key={x.slug}><Link href={`/l/${x.slug}`}>{x.name}</Link> <span className="meta">{x.city}</span></li>)}</ul>
+      <p className="meta"><Link href={`/c/${c.slug}`}>See all {c.name.toLowerCase()}</Link></p></section>}</>);
 }
