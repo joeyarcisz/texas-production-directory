@@ -16,7 +16,7 @@ export default function L({ params }) {
   const more = listings.filter(x => x.cat === l.cat && x.slug !== l.slug)
     .sort((a, b) => (b.city.includes(city) ? 1 : 0) - (a.city.includes(city) ? 1 : 0)).slice(0, 5);
   const type = l.cat === "locations" ? "GovernmentOrganization" : l.cat === "crew" ? "Organization" : "LocalBusiness";
-  const ld = { "@context": "https://schema.org", "@type": type, name: l.name, url: l.url, description: l.note, areaServed: l.city + ", Texas",
+  const ld = { "@context": "https://schema.org", "@type": type, "@id": `${SITE}/l/${l.slug}#org`, mainEntityOfPage: `${SITE}/l/${l.slug}`, name: l.name, url: l.url, description: l.note, areaServed: l.city + ", Texas",
     ...(l.phone && { telephone: l.phone }), ...(l.address && { address: postal(l.address) }) };
   const crumbs = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
     { "@type": "ListItem", position: 1, name: NAME, item: SITE },
